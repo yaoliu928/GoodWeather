@@ -1,20 +1,23 @@
-import { useNavigate } from "react-router-dom";
-
-
-const WeatherListItem = ({ id, temperature, name, condition }) => {
-
-  const navigate = useNavigate();
-
-  const handleOnClick = () => {
-    navigate(`/${id}`);
-  }
+const WeatherListItem = ({ current, forecasts }) => {
+  const { name, temp_c, text } = current;
 
   return (
-    <li onClick={handleOnClick}>
-      {`${name} Current Weather: ${temperature}°C -- ${condition}`}
+    <li >
+      <h3>{name}</h3>
+      <h4>Current Weather:</h4>
+      <p>{`Temperature: ${temp_c}°C Condition: ${text}`}</p>
+      <h4>Forecast (3-days):</h4>
+      <ul>{
+        forecasts.map((forecast) => {
+          const { minTemp, maxTemp, condition, date } = forecast;
+          return (<li
+            key={date}>
+            {`Date: ${date} Temperature: ${minTemp}°C - ${maxTemp}°C Condition: ${condition}`}</li>)
+        })
+      }
+      </ul>
     </li>
   )
 }
-
 
 export default WeatherListItem;
