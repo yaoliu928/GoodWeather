@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import AddCityForm from "./components/AddCityForm";
 import WeatherList from "./components/WeatherList";
@@ -16,13 +17,12 @@ const App = () => {
 
   const updateWeather = async (city) => {
     try {
+      setErrorMessage('');
       checkDuplicate(weathers, city);
       setIsLoading(true);
       const response = await getWeatherData(city);
       const weather = formatWeatherData(response);
       setWeathers([...weathers, weather]);
-      setErrorMessage('');
-      setIsLoading(false);
     }
     catch (error) {
       let errorMessage = error.message;
@@ -30,6 +30,8 @@ const App = () => {
         errorMessage = error.response.data.error.message;
       }
       setErrorMessage(errorMessage);
+    }
+    finally {
       setIsLoading(false);
     }
   }
@@ -42,9 +44,11 @@ const App = () => {
   return (
     <div>
       <Header />
-      <AddCityForm handleAddCity={updateWeather} />
+      <AddCityForm handleAddCity={updateWeather} isLoading={isLoading} />
       {errorMessage && (<p>{errorMessage}</p>)}
-      <WeatherList isLoading={isLoading} weathers={weathers} />
+      {isLoading
+        ? <CircularProgress />
+        : <WeatherList weathers={weathers} />}
     </div>
   )
 }

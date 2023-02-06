@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddCityForm = ({ handleAddCity }) => {
+const AddCityForm = ({ handleAddCity, isLoading }) => {
 
   const [city, setCity] = useState('');
 
@@ -10,13 +10,21 @@ const AddCityForm = ({ handleAddCity }) => {
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
+    if (!city) {
+      // todo : error handling
+      return;
+    }
     handleAddCity(city);
+    setCity('');
   }
 
   return (
     <form onSubmit={(city) => handleOnSubmit(city)} >
-      <input value={city} onChange={handleOnChange} />
-      <button >Add a city</button>
+      <input type='text'
+        placeholder='Search a city'
+        value={city}
+        onChange={handleOnChange} />
+      <button type="submit" disabled={isLoading} >Add a city</button>
     </form>
   )
 };
