@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-src/constants/key.js
+src/constants/key.j
 
 # dependencies
 /node_modules

@@ -1,15 +1,18 @@
+import CircularProgress from '@mui/material/CircularProgress';
 import WeatherListItem from './WeatherListItem';
 
-const WeatherList = ({ weathers }) => {
+const WeatherList = ({ weathers, isLoading }) => {
 
   return (
     <div>
-      <ul>{weathers.map((weather) => (
-        <WeatherListItem
-          key={weather.id}
-          {...weather}
-        />))}
-      </ul>
+      {isLoading
+        ? (<CircularProgress />)
+        : (<ul>{weathers.map((weather) => (
+          <WeatherListItem
+            key={weather.id}
+            {...weather}
+          />))}
+        </ul>)}
     </div>
   )
 };
