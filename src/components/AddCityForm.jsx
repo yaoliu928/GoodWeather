@@ -10,10 +10,6 @@ const AddCityForm = ({ handleAddCity, isLoading }) => {
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    if (!city) {
-      // todo : error handling
-      return;
-    }
     handleAddCity(city);
     setCity('');
   }
