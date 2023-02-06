@@ -18,9 +18,6 @@ const App = () => {
   const updateWeather = async (city) => {
     try {
       setErrorMessage('');
-      if (!city) {
-        throw new Error('Please input a city name.');
-      }
       checkDuplicate(weathers, city);
       setIsLoading(true);
       const response = await getWeatherData(city);
