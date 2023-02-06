@@ -7,6 +7,7 @@ export const getWeather = createAsyncThunk(
     const url = `http://api.weatherapi.com/v1/current.json?key=27e084209eca47d8ac565616232901&q=${city}&aqi=no`;
     try {
       const response = await axios.get(url);
+      console.log(response);
       return response.data;
     } catch (error) {
       // Handle errors
@@ -14,14 +15,14 @@ export const getWeather = createAsyncThunk(
   }
 );
 
-const initialState = '';
+const initialState = [];
 const weatherSlice = createSlice({
   name: 'weather',
   initialState,
   extraReducers: (builder) => {
     builder
       .addCase(getWeather.fulfilled, (state, action) => {
-        state = action;
+        state.push(action.payload);
       })
   }
 });
