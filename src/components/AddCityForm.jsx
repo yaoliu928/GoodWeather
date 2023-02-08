@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const AddCityForm = ({ handleAddCity, isLoading }) => {
+const AddCityForm = ({ handleAddCity, isLoading, emptyError }) => {
 
   const [city, setCity] = useState('');
+  const [isValidInput, setIsValidInput] = useState(false);
 
   const handleOnChange = (event) => {
+    emptyError();
     setCity(event.target.value);
   }
 
@@ -14,13 +16,19 @@ const AddCityForm = ({ handleAddCity, isLoading }) => {
     setCity('');
   }
 
+  useEffect(() => {
+    (city.length > 2)
+      ? setIsValidInput(true)
+      : setIsValidInput(false)
+  }, [city]);
+
   return (
     <form onSubmit={(city) => handleOnSubmit(city)} >
       <input type='text'
-        placeholder='Search a city'
+        placeholder='Input a city name'
         value={city}
         onChange={handleOnChange} />
-      <button type="submit" disabled={isLoading} >Add a city</button>
+      <button type="submit" disabled={(!isValidInput) || isLoading} >Add a city</button>
     </form>
   )
 };

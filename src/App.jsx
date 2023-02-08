@@ -15,12 +15,12 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  const handleEmptyError = () => {
+    setErrorMessage('');
+  }
+
   const updateWeather = async (city) => {
     try {
-      setErrorMessage('');
-      if (!city) {
-        throw new Error('Please input a city name.');
-      }
       checkDuplicate(weathers, city);
       setIsLoading(true);
       const response = await getWeatherData(city);
@@ -47,7 +47,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <AddCityForm handleAddCity={updateWeather} isLoading={isLoading} />
+      <AddCityForm handleAddCity={updateWeather} emptyError={handleEmptyError} isLoading={isLoading} />
       {errorMessage && (<p>{errorMessage}</p>)}
       {isLoading
         ? <CircularProgress />
