@@ -17,9 +17,14 @@ const AddCityForm = ({ handleAddCity, isLoading, emptyError }) => {
   }
 
   useEffect(() => {
-    (city.length > 2)
-      ? setIsValidInput(true)
-      : setIsValidInput(false)
+    const debounce = setTimeout(() => {
+      (city.length > 2)
+        ? setIsValidInput(true)
+        : setIsValidInput(false);
+    }, 300);
+    return () => {
+      clearTimeout(debounce);
+    }
   }, [city]);
 
   return (
