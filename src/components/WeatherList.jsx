@@ -1,6 +1,10 @@
+import { useContext } from 'react';
+
+import WeathersContext from '../context/weathersContext';
 import WeatherListItem from './WeatherListItem';
 
-const WeatherList = ({ weathers }) => {
+const WeatherList = () => {
+  const { weathers } = useContext(WeathersContext);
 
   return (
     <div>

@@ -1,18 +1,47 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
-const AddCityForm = ({ handleAddCity, isLoading, emptyError }) => {
+import WeathersContext from '../context/weathersContext';
+import checkDuplicate from '../utils/checkDuplicate';
+import getWeatherData from '../utils/axios';
+import formatWeatherData from '../utils/formatData';
 
+const AddCityForm = ({ handleLoading }) => {
+  const { weathers, dispatch } = useContext(WeathersContext);
   const [city, setCity] = useState('');
   const [isValidInput, setIsValidInput] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleOnChange = (event) => {
-    emptyError();
+    setErrorMessage('');
     setCity(event.target.value);
+  }
+
+  const addCityWeather = async (city) => {
+    try {
+      checkDuplicate(weathers, city);
+      handleLoading(true);
+      const response = await getWeatherData(city);
+      const weather = formatWeatherData(response);
+      dispatch({
+        type: 'ADD_CITY', payload: weather
+      });
+    }
+    catch (error) {
+      let errorMessage = error.message;
+      if (error.response) {
+        errorMessage = error.response.data.error.message;
+      }
+      setErrorMessage(errorMessage);
+    }
+    finally {
+      setIsValidInput(false);
+      handleLoading(false);
+    }
   }
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    handleAddCity(city);
+    addCityWeather(city);
     setCity('');
   }
 
@@ -33,7 +62,8 @@ const AddCityForm = ({ handleAddCity, isLoading, emptyError }) => {
         placeholder='Input a city name'
         value={city}
         onChange={handleOnChange} />
-      <button type="submit" disabled={(!isValidInput) || isLoading} >Add a city</button>
+      <button type="submit" disabled={!isValidInput} >Add a city</button>
+      {errorMessage && (<p>{errorMessage}</p>)}
     </form>
   )
 };
