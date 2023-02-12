@@ -46,6 +46,13 @@ const AddCityForm = ({ handleLoading }) => {
   }
 
   useEffect(() => {
+    return () => {
+      addCityWeather('brisbane');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
     const debounce = setTimeout(() => {
       (city.length > 2)
         ? setIsValidInput(true)
