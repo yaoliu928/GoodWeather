@@ -57,7 +57,7 @@ const AddCityForm = ({ handleLoading }) => {
       (city.length > 2)
         ? setIsValidInput(true)
         : setIsValidInput(false);
-    }, 300);
+    }, 3000);
     return () => {
       clearTimeout(debounce);
     }
@@ -68,9 +68,11 @@ const AddCityForm = ({ handleLoading }) => {
       <input type='text'
         placeholder='Input a city name'
         value={city}
-        onChange={handleOnChange} />
-      <button type="submit" disabled={!isValidInput} >Add a city</button>
-      {errorMessage && (<p>{errorMessage}</p>)}
+        onChange={handleOnChange}
+        data-testid="add-a-city"
+      />
+      <button data-testid="click" type="submit" disabled={!isValidInput} >Add a city</button>
+      {errorMessage && (<p data-testid="error-message">{errorMessage}</p>)}
     </form>
   )
 };

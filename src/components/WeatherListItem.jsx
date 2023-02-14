@@ -9,7 +9,7 @@ const WeatherListItem = ({ id, current, forecasts }) => {
 
   return (
     <li >
-      <h3>{name}</h3>
+      <h3 data-testid="header-text">{name}</h3>
       <button onClick={() => {
         dispatch({
           type: 'REMOVE_CITY', payload: id
