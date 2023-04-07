@@ -7,9 +7,9 @@ const WeatherList = () => {
     <div>
       <h2>Weather List</h2>
       <ul>
-        {currentWeathers.map((currentWeather, index) => (
+        {currentWeathers.map((currentWeather) => (
           <WeatherListItem
-            key={index}
+            key={currentWeather.id}
             {...currentWeather}
           />
         ))

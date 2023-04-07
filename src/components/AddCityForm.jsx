@@ -25,7 +25,6 @@ const AddCityForm = () => {
         >Add a city
         </button>
       </form>
-
     </div>
   )
 };
