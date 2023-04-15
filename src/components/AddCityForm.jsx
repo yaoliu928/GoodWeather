@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 
 import WeathersContext from '../context/weathersContext';
 import checkDuplicate from '../utils/checkDuplicate';
@@ -6,6 +6,7 @@ import getWeatherData from '../utils/axios';
 import formatWeatherData from '../utils/formatData';
 
 const AddCityForm = ({ handleLoading }) => {
+  const isInitialMount = useRef(true);
   const { weathers, dispatch } = useContext(WeathersContext);
   const [city, setCity] = useState('');
   const [isValidInput, setIsValidInput] = useState(false);
@@ -46,7 +47,13 @@ const AddCityForm = ({ handleLoading }) => {
   }
 
   useEffect(() => {
+    if (!isInitialMount.current) {
+      return;
+    }
     addCityWeather('brisbane');
+    return () => {
+      isInitialMount.current = false;
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
