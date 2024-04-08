@@ -5,7 +5,6 @@ import ForecastItem from './ForecastItem';
 
 const ForecastsList = () => {
   const forecasts = useSelector((state) => state.forecasts);
-  console.log('forecasts', forecasts);
 
   return (
     <div>ForecastsList:

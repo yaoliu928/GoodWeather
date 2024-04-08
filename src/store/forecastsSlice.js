@@ -10,7 +10,6 @@ const forecastsSlice = createSlice({
     builder.addCase(
       getForecasts.fulfilled,
       (state, action) => {
-        console.log('payload', action.payload);
         const forecast = (num) => {
           const { maxtemp_c, mintemp_c, condition: { text: condition, icon: conditionIcon } } = action.payload.forecast.forecastday[num].day;
           const { date } = action.payload.forecast.forecastday[num];
