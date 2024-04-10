@@ -4,12 +4,11 @@ const WeatherList = ({ weathers }) => {
 
   return (
     <div>
-      <ul>{weathers.map((weather) => (
+      {weathers.map((weather) => (
         <WeatherListItem
           key={weather.id}
           {...weather}
         />))}
-      </ul>
     </div>
   )
 };

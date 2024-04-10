@@ -28,7 +28,7 @@ const AddCityForm = ({ handleAddCity, isLoading, emptyError }) => {
   }, [city]);
 
   return (
-    <form onSubmit={(city) => handleOnSubmit(city)} >
+    <form className="add-form" onSubmit={(city) => handleOnSubmit(city)} >
       <input type='text'
         placeholder='Input a city name'
         value={city}

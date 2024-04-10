@@ -3,7 +3,6 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 import AddCityForm from "./components/AddCityForm";
 import WeatherList from "./components/WeatherList";
-import Header from './components/Header';
 import './styles/index.scss';
 import getWeatherData from './utils/axios';
 import formatWeatherData from './utils/formatData';
@@ -45,8 +44,8 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <Header />
+    <div className='app'>
+      <h1>Good Weather App</h1>
       <AddCityForm handleAddCity={updateWeather} emptyError={handleEmptyError} isLoading={isLoading} />
       {errorMessage && (<p>{errorMessage}</p>)}
       {isLoading
