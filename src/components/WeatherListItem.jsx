@@ -8,26 +8,24 @@ const WeatherListItem = ({ id, current, forecasts }) => {
   const { dispatch } = useContext(WeathersContext);
 
   return (
-    <li >
-      <h3 data-testid="header-text">{name}</h3>
-      <button onClick={() => {
-        dispatch({
-          type: 'REMOVE_CITY', payload: id
-        });
-      }}>Remove The City</button>
-      <h4>Current Weather:</h4>
+    <div className="item" >
+      <h2 data-testid="header-text">{name}</h2>
       <img src={icon} alt='weather icon' />
-      <p>{`Temperature: ${temp_c}°C Condition: ${text}`}</p>
-      <h4>Forecast (3-days):</h4>
+      <p>{`${temp_c}°C ${text}`}</p>
       <ul>{
         forecasts.map((forecast) => {
           const { minTemp, maxTemp, condition, date } = forecast;
           return (<li
             key={date}>
-            {`Date: ${date} Temperature: ${minTemp}°C - ${maxTemp}°C Condition: ${condition}`}</li>)
+            {`${date} ${Math.floor(minTemp)}°C - ${Math.floor(maxTemp)}°C ${condition}`}</li>)
         })}
       </ul>
-    </li>
+      <button className='delete-button' onClick={() => {
+        dispatch({
+          type: 'REMOVE_CITY', payload: id
+        });
+      }}>Remove</button>
+    </div>
   )
 }
 

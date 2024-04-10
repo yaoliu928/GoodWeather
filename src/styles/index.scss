@@ -1,4 +1,72 @@
-* {
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.add-form {
+  margin-bottom: 20px;
+  input[type='text'] {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button[type='submit'] {
+    background-color: #c006c4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #c106c4cc;
+    }
+  }
+}
+
+.item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  h2,
+  p {
+    margin: 0;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.delete-button {
+  margin-top: 1rem;
+  background-color: rgb(151, 150, 147);
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(206, 205, 203);
+  }
 }
