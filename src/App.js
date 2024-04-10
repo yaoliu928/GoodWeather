@@ -3,7 +3,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-
+import './styles/index.scss';
 import Dashboard from "./pages/Dashboard";
 import DetailPage from "./pages/DetailPage";
 

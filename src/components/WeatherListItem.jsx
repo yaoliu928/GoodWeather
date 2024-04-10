@@ -10,13 +10,12 @@ const WeatherListItem = ({ name, temp, condition, id }) => {
     dispatch(removeWeather(id));
   }
   return (
-    <li>
-      <p>City Name: {name}</p>
-      <p>Temperature: {temp}°C</p>
-      <p>Condition: {condition}</p>
-      <button onClick={handleDelete}>X</button>
-      <Link to={`/${id}`}>Forecast</Link>
-    </li>
+    <div className='item'>
+      <h3>{name}</h3>
+      <p>{temp}°C {condition}</p>
+      <button className='delete' onClick={handleDelete}>Remove</button>
+      <Link className='forecast' to={`/${id}`}>Forecast</Link>
+    </div>
   );
 }
 

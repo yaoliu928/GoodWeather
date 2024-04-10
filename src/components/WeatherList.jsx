@@ -6,7 +6,7 @@ const WeatherList = () => {
   return (
     <div>
       <h2>Weather List</h2>
-      <ul>
+      <div>
         {currentWeathers.map((currentWeather) => (
           <WeatherListItem
             key={currentWeather.id}
@@ -14,7 +14,7 @@ const WeatherList = () => {
           />
         ))
         }
-      </ul>
+      </div>
     </div>);
 }
 

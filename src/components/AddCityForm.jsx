@@ -12,20 +12,19 @@ const AddCityForm = () => {
   }
 
   return (
-    <div>
+    <form className='add-form' onSubmit={handleOnSubmit}>
       <h2>Add City Form</h2>
-      <form onSubmit={handleOnSubmit}>
-        <label htmlFor='city'>City Name<br /></label>
-        <input
-          type='text'
-          id='city'
-          value={city}
-          onChange={(e) => setCity(e.target.value)} />
-        <button type='submit'
-        >Add a city
-        </button>
-      </form>
-    </div>
+      <label htmlFor='city'>City Name</label>
+      <input
+        type='text'
+        id='city'
+        value={city}
+        onChange={(e) => setCity(e.target.value)} />
+      <button type='submit'
+      >Add a city
+      </button>
+    </form>
+
   )
 };
 
