@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/GoodWeather/static/css/main.e4dabdd5.css",
+    "main.js": "/GoodWeather/static/js/main.1a7433aa.js",
+    "index.html": "/GoodWeather/index.html",
+    "main.e4dabdd5.css.map": "/GoodWeather/static/css/main.e4dabdd5.css.map",
+    "main.1a7433aa.js.map": "/GoodWeather/static/js/main.1a7433aa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e4dabdd5.css",
+    "static/js/main.1a7433aa.js"
+  ]
+}
