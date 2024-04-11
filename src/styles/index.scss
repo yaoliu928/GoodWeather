@@ -58,12 +58,12 @@ body {
 }
 
 .delete-button {
-  margin-top: 1rem;
+  margin-top: 16px;
   background-color: rgb(151, 150, 147);
   color: white;
   border: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
+  padding: 4px 8px;
+  border-radius: 4px;
   cursor: pointer;
 
   &:hover {
