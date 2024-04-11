@@ -7,12 +7,10 @@ const ForecastsList = () => {
   const forecasts = useSelector((state) => state.forecasts);
 
   return (
-    <div>ForecastsList:
-      <ul>{forecasts.map((forecast) =>
-        <ForecastItem {...forecast} key={forecast.date} />)
-      }
-      </ul>
-    </div>
+    <ul className='forecasts'>{forecasts.map((forecast) =>
+      <ForecastItem {...forecast} key={forecast.date} />)
+    }
+    </ul>
   )
 }
 

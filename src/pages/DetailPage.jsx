@@ -23,10 +23,10 @@ const DetailPage = () => {
   }, [cityName, dispatch]);
 
   return (
-    <div>
-      DetailPage
+    <div className='dashboard'>
+      <h1>Forecasts</h1>
       <div>
-        <Link to="/">Dashboard</Link>
+        <Link className='dashboard-link' to="/">Dashboard</Link>
       </div>
       <ForecastsList />
     </div>

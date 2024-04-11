@@ -3,7 +3,7 @@ import WeatherList from "../components/WeatherList";
 
 const Dashboard = () => (
   <div className="dashboard">
-    <h1>Dashboard</h1>
+    <h1>Good Weather</h1>
     <AddCityForm />
     <WeatherList />
   </div>);

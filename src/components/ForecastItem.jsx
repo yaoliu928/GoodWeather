@@ -7,10 +7,10 @@ const ForecastItem = ({
   date,
   conditionIcon
 }) => (
-  <li>
-    <h3>{date}:{condition}</h3>
+  <li className='item'>
+    <h3 className='forecast-item'>{date}: {condition}</h3>
     <img src={`https:${conditionIcon}`} alt='weather icon' />
-    <p>{mintemp_c}°C ~ {maxtemp_c}°C</p>
+    <p>{Math.floor(mintemp_c)}°C ~ {Math.floor(maxtemp_c)}°C</p>
   </li>
 );
 

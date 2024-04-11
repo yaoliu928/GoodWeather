@@ -49,6 +49,7 @@ body {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
+  list-style-type: none;
 
   h3 {
     margin-top: 0;
@@ -92,5 +93,27 @@ body {
   margin-left: 5px;
   &:hover {
     background-color: rgba(2, 126, 29, 0.724);
+  }
+}
+
+.forecasts {
+  padding: 0;
+}
+
+.forecast-item {
+  margin: 0;
+}
+
+.dashboard-link {
+  background-color: rgb(130, 0, 244);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 5px;
+  &:hover {
+    background-color: rgba(130, 0, 244, 0.749);
   }
 }
