@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/GoodWeather/static/css/main.e4dabdd5.css",
-    "main.js": "/GoodWeather/static/js/main.1a7433aa.js",
+    "main.js": "/GoodWeather/static/js/main.51cc5a40.js",
     "index.html": "/GoodWeather/index.html",
     "main.e4dabdd5.css.map": "/GoodWeather/static/css/main.e4dabdd5.css.map",
-    "main.1a7433aa.js.map": "/GoodWeather/static/js/main.1a7433aa.js.map"
+    "main.51cc5a40.js.map": "/GoodWeather/static/js/main.51cc5a40.js.map"
   },
   "entrypoints": [
     "static/css/main.e4dabdd5.css",
-    "static/js/main.1a7433aa.js"
+    "static/js/main.51cc5a40.js"
   ]
 }
