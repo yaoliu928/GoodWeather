@@ -13,8 +13,8 @@ const WeatherListItem = ({ name, temp, condition, id }) => {
     <div className='item'>
       <h3>{name}</h3>
       <p>{temp}°C {condition}</p>
-      <button className='delete' onClick={handleDelete}>Remove</button>
-      <Link className='forecast' to={`/${id}`}>Forecast</Link>
+      <button className='delete-btn' onClick={handleDelete}>Remove</button>
+      <Link className='forecast-btn' to={`/${id}`}>Forecast</Link>
     </div>
   );
 }
