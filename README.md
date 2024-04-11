@@ -1,6 +1,6 @@
 ## Good Weather App
 
-### [Live Demo](https://yaoliu928.github.io/OnlinePost-ReduxToolkit/)
+### [Live Demo](https://yaoliu928.github.io/GoodWeather/)
 
 ### Tech Stacks
 
